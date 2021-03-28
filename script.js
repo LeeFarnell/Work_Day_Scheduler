@@ -12,5 +12,13 @@ $(document).ready(function () {
 });
 
 $("button").click(function () {
+  const nine = document.querySelector("#nine").value;
+  const ten = document.querySelector("#ten").value;
+  const eleven = document.querySelector("#eleven").value;
+
+  const schedule = [nine, ten, eleven];
+
+  localStorage.setItem("Event", schedule);
+
   console.log("Save");
 });
