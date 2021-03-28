@@ -37,6 +37,8 @@ $(document).ready(function () {
 $(".row").each(function () {
   if (timeBlock < currentHour) {
     console.log("Less Than");
+  } else {
+    console.log("Greater Than");
   }
   // console.log("Hello");
 });
