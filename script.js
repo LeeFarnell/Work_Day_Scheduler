@@ -1,6 +1,11 @@
 const bodyElement = document.body;
 const dateTime = document.getElementById("currentDay");
 
+const getFromLocalStorage = () => {
+  const schedule = localStorage.getItem("Event");
+  return schedule;
+};
+
 $(document).ready(function () {
   console.log("Ready");
 
@@ -9,6 +14,7 @@ $(document).ready(function () {
   }
 
   setInterval(update, 1000);
+  $("textarea").text(getFromLocalStorage());
 });
 
 $("button").click(function () {
