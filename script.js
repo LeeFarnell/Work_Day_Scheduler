@@ -1,10 +1,15 @@
 const bodyElement = document.body;
 const dateTime = document.getElementById("currentDay");
 
-const getFromLocalStorage = () => {
-  const schedule = localStorage.getItem("Nine");
-  return schedule;
-};
+const nineEvent = localStorage.getItem("Nine");
+const tenEvent = localStorage.getItem("Ten");
+const elevenEvent = localStorage.getItem("Eleven");
+const twelveEvent = localStorage.getItem("Twelve");
+const oneEvent = localStorage.getItem("One");
+const twoEvent = localStorage.getItem("Two");
+const threeEvent = localStorage.getItem("Three");
+const fourEvent = localStorage.getItem("Four");
+const fiveEvent = localStorage.getItem("Five");
 
 $(document).ready(function () {
   console.log("Ready");
@@ -14,29 +19,61 @@ $(document).ready(function () {
   }
 
   setInterval(update, 1000);
-  $("#nine").text(getFromLocalStorage());
+  $("#nine").text(nineEvent);
+  $("#ten").text(tenEvent);
+  $("#eleven").text(elevenEvent);
+  $("#twelve").text(twelveEvent);
+  $("#one").text(oneEvent);
+  $("#two").text(twoEvent);
+  $("#three").text(threeEvent);
+  $("#four").text(fourEvent);
+  $("#five").text(fiveEvent);
 });
 
 // Work on below. Would this work better with data attributes?
-$("button").click(function () {
+$("#nineBtn").click(function () {
   const nine = document.querySelector("#nine").value;
   localStorage.setItem("Nine", nine);
+});
+
+$("#tenBtn").click(function () {
   const ten = document.querySelector("#ten").value;
   localStorage.setItem("Ten", ten);
+});
+
+$("#elevenBtn").click(function () {
   const eleven = document.querySelector("#eleven").value;
   localStorage.setItem("Eleven", eleven);
+});
+
+$("#twelveBtn").click(function () {
   const twelve = document.querySelector("#twelve").value;
   localStorage.setItem("Twelve", twelve);
+});
+
+$("#oneBtn").click(function () {
   const one = document.querySelector("#one").value;
   localStorage.setItem("One", one);
+});
+
+$("#twoBtn").click(function () {
   const two = document.querySelector("#two").value;
   localStorage.setItem("Two", two);
+});
+
+$("#threeBtn").click(function () {
   const three = document.querySelector("#three").value;
   localStorage.setItem("Three", three);
+});
+
+$("#fourBtn").click(function () {
   const four = document.querySelector("#four").value;
   localStorage.setItem("Four", four);
+});
+
+$("#fiveBtn").click(function () {
   const five = document.querySelector("#five").value;
   localStorage.setItem("Five", five);
-
-  console.log("Save");
 });
+
+console.log("Save");
