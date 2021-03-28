@@ -12,6 +12,10 @@ const fourEvent = localStorage.getItem("Four");
 const fiveEvent = localStorage.getItem("Five");
 
 const currentHour = parseInt(moment().format("HH"));
+console.log(currentHour);
+
+const timeBlock = $(".row").data("time");
+console.log(timeBlock);
 
 $(document).ready(function () {
   function update() {
@@ -31,7 +35,10 @@ $(document).ready(function () {
 
 // Set class depending on time.
 $(".row").each(function () {
-  console.log("Hello");
+  if (timeBlock < currentHour) {
+    console.log("Less Than");
+  }
+  // console.log("Hello");
 });
 
 // Work on below. Would this work better with data attributes?
