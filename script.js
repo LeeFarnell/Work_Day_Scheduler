@@ -10,3 +10,7 @@ $(document).ready(function () {
 
   setInterval(update, 1000);
 });
+
+$("button").click(function () {
+  console.log("Save");
+});
