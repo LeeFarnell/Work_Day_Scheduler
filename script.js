@@ -12,12 +12,9 @@ const fourEvent = localStorage.getItem("Four");
 const fiveEvent = localStorage.getItem("Five");
 
 $(document).ready(function () {
-  console.log("Ready");
-
   function update() {
     $("#currentDay").text(moment().format("dddd Do MMMM, HH:mm:ss"));
   }
-
   setInterval(update, 1000);
   $("#nine").text(nineEvent);
   $("#ten").text(tenEvent);
@@ -75,5 +72,3 @@ $("#fiveBtn").click(function () {
   const five = document.querySelector("#five").value;
   localStorage.setItem("Five", five);
 });
-
-console.log("Save");
