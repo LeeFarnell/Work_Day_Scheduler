@@ -11,6 +11,8 @@ const threeEvent = localStorage.getItem("Three");
 const fourEvent = localStorage.getItem("Four");
 const fiveEvent = localStorage.getItem("Five");
 
+const currentHour = parseInt(moment().format("HH"));
+
 $(document).ready(function () {
   function update() {
     $("#currentDay").text(moment().format("dddd Do MMMM, HH:mm:ss"));
