@@ -27,6 +27,11 @@ $(document).ready(function () {
   $("#five").text(fiveEvent);
 });
 
+// Set class depending on time.
+$(".row").each(function () {
+  console.log("Hello");
+});
+
 // Work on below. Would this work better with data attributes?
 $("#nineBtn").click(function () {
   const nine = document.querySelector("#nine").value;
