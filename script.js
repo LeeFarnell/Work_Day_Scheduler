@@ -16,8 +16,8 @@ console.log(currentHour);
 
 const timeBlock = $(".row").data("time");
 
-$(".row").each(function () {
-  console.log(timeBlock);
+$(timeBlock).map(function (currentBlock) {
+  console.log(currentBlock);
 });
 
 $(document).ready(function () {
