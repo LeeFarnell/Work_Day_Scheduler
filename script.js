@@ -1,5 +1,6 @@
 const bodyElement = document.body;
 const dateTime = document.getElementById("currentDay");
+const time = [09, 10, 11, 12, 13, 14, 15, 16, 17];
 
 const nineEvent = localStorage.getItem("Nine");
 const tenEvent = localStorage.getItem("Ten");
@@ -15,9 +16,10 @@ const currentHour = parseInt(moment().format("HH"));
 console.log(currentHour);
 
 const timeBlock = $(".row").data("time");
+console.log(timeBlock);
 
-$(timeBlock).map(function (currentBlock) {
-  console.log(currentBlock);
+$(".row").each(function () {
+  console.log(timeBlock);
 });
 
 $(document).ready(function () {
@@ -38,7 +40,7 @@ $(document).ready(function () {
 
 // Set class depending on time. Try a map function?
 // $(".row").each(function () {
-//   if (timeBlock < currentHour) {
+//   if (currentBlock > currentHour) {
 //     console.log("Less Than");
 //   } else {
 //     console.log("Greater Than");
