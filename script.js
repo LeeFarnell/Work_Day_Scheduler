@@ -15,7 +15,10 @@ const currentHour = parseInt(moment().format("HH"));
 console.log(currentHour);
 
 const timeBlock = $(".row").data("time");
-console.log(timeBlock);
+
+$(".row").each(function () {
+  console.log(timeBlock);
+});
 
 $(document).ready(function () {
   function update() {
@@ -33,15 +36,15 @@ $(document).ready(function () {
   $("#five").text(fiveEvent);
 });
 
-// Set class depending on time.
-$(".row").each(function () {
-  if (timeBlock < currentHour) {
-    console.log("Less Than");
-  } else {
-    console.log("Greater Than");
-  }
-  // console.log("Hello");
-});
+// Set class depending on time. Try a map function?
+// $(".row").each(function () {
+//   if (timeBlock < currentHour) {
+//     console.log("Less Than");
+//   } else {
+//     console.log("Greater Than");
+//   }
+//   // console.log("Hello");
+// });
 
 // Work on below. Would this work better with data attributes?
 $("#nineBtn").click(function () {
