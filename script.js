@@ -1,8 +1,6 @@
 const bodyElement = document.body;
 const dateTime = document.getElementById("currentDay");
-const currentHour = parseInt(moment().format("HH"));
-const scheduleHour = $("textarea").data("setTime");
-const time = [];
+const currentHour = moment().hour();
 
 const nineEvent = localStorage.getItem("Nine");
 const tenEvent = localStorage.getItem("Ten");
@@ -30,15 +28,19 @@ $(document).ready(function () {
   $("#five").text(fiveEvent);
 });
 
-// Set class depending on time. Try a map function?
-// $(".row").each(function () {
-//   if (currentBlock > currentHour) {
-//     console.log("Less Than");
-//   } else {
-//     console.log("Greater Than");
-//   }
-//   // console.log("Hello");
-// });
+// Need an array of Rows
+const timeBlocks = $(".container .row");
+const callback = function () {
+  const timeBlockTime = $(this).data("time");
+  if (timeBlockTime === currentHour) {
+    $(this).find("textarea").removeClass("pass").addClass("present");
+  }
+  if (timeBlockTime > currentHour) {
+    $(this).find("textarea").removeClass("pass").addClass("future");
+  }
+  console.log(timeBlockTime);
+};
+timeBlocks.each(callback);
 
 // Work on below. Would this work better with data attributes?
 $("#nineBtn").click(function () {
