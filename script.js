@@ -1,6 +1,7 @@
 const bodyElement = document.body;
 const dateTime = document.getElementById("currentDay");
-const time = [09, 10, 11, 12, 13, 14, 15, 16, 17];
+const scheduleHour = $(".container .row").data("setTime");
+const time = [];
 
 const nineEvent = localStorage.getItem("Nine");
 const tenEvent = localStorage.getItem("Ten");
@@ -14,13 +15,6 @@ const fiveEvent = localStorage.getItem("Five");
 
 const currentHour = parseInt(moment().format("HH"));
 console.log(currentHour);
-
-const timeBlock = $(".row").data("time");
-console.log(timeBlock);
-
-$(".row").each(function () {
-  console.log(timeBlock);
-});
 
 $(document).ready(function () {
   function update() {
