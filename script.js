@@ -1,7 +1,7 @@
 const bodyElement = document.body;
 const dateTime = document.getElementById("currentDay");
 const currentHour = moment().hour();
-
+// Retrieve data from local storage.
 const nineEvent = localStorage.getItem("Nine");
 const tenEvent = localStorage.getItem("Ten");
 const elevenEvent = localStorage.getItem("Eleven");
@@ -12,6 +12,7 @@ const threeEvent = localStorage.getItem("Three");
 const fourEvent = localStorage.getItem("Four");
 const fiveEvent = localStorage.getItem("Five");
 
+// OnLoad function for main page.
 $(document).ready(function () {
   function update() {
     $("#currentDay").text(moment().format("dddd Do MMMM, HH:mm:ss"));
@@ -28,7 +29,7 @@ $(document).ready(function () {
   $("#five").text(fiveEvent);
 });
 
-// Need an array of Rows
+// Time blocks to determine if the current time is in the past/present/future.
 const timeBlocks = $(".container .row");
 const callback = function () {
   const timeBlockTime = $(this).data("time");
@@ -38,11 +39,10 @@ const callback = function () {
   if (timeBlockTime > currentHour) {
     $(this).find("textarea").removeClass("pass").addClass("future");
   }
-  console.log(timeBlockTime);
 };
 timeBlocks.each(callback);
 
-// Work on below. Would this work better with data attributes?
+// Event listeners for each save button. Each button saves respective hour.
 $("#nineBtn").click(function () {
   const nine = document.querySelector("#nine").value;
   localStorage.setItem("Nine", nine);
