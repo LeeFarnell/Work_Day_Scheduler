@@ -1,4 +1,3 @@
-const dateTime = $("#currentDay");
 const currentHour = moment().hour();
 // Retrieve data from local storage.
 const nineEvent = localStorage.getItem("Nine");
