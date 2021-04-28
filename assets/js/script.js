@@ -1,13 +1,3 @@
-const nineEvent = localStorage.getItem("nine");
-const tenEvent = localStorage.getItem("ten");
-const elevenEvent = localStorage.getItem("eleven");
-const twelveEvent = localStorage.getItem("twelve");
-const oneEvent = localStorage.getItem("one");
-const twoEvent = localStorage.getItem("two");
-const threeEvent = localStorage.getItem("three");
-const fourEvent = localStorage.getItem("four");
-const fiveEvent = localStorage.getItem("five");
-
 const renderCurrentTime = () => {
   const update = () => {
     $("#currentDay").text(moment().format("dddd Do MMMM, HH:mm:ss"));
@@ -34,6 +24,16 @@ const renderTimeBlocks = () => {
 };
 
 const renderTimeBlocksText = () => {
+  const nineEvent = localStorage.getItem("nine");
+  const tenEvent = localStorage.getItem("ten");
+  const elevenEvent = localStorage.getItem("eleven");
+  const twelveEvent = localStorage.getItem("twelve");
+  const oneEvent = localStorage.getItem("one");
+  const twoEvent = localStorage.getItem("two");
+  const threeEvent = localStorage.getItem("three");
+  const fourEvent = localStorage.getItem("four");
+  const fiveEvent = localStorage.getItem("five");
+
   $("#nine").text(nineEvent);
   $("#ten").text(tenEvent);
   $("#eleven").text(elevenEvent);
