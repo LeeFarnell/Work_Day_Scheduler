@@ -36,13 +36,13 @@ $(document).ready(onReady);
 const timeBlocks = $(".container .row");
 const callback = function () {
   const timeBlockTime = $(this).data("time");
-  const currentHour = 13;
+  const currentHour = moment().hour();
 
   if (timeBlockTime === currentHour) {
-    $(this).find("textarea").removeClass("pass").addClass("present");
+    $(this).find("textarea").removeClass("past").addClass("present");
   }
   if (timeBlockTime > currentHour) {
-    $(this).find("textarea").removeClass("pass").addClass("future");
+    $(this).find("textarea").removeClass("past").addClass("future");
   }
 };
 timeBlocks.each(callback);
