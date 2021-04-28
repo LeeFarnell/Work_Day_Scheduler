@@ -10,12 +10,17 @@ const threeEvent = localStorage.getItem("Three");
 const fourEvent = localStorage.getItem("Four");
 const fiveEvent = localStorage.getItem("Five");
 
+const renderCurrentTime = () => {
+  const update = () => {
+    $("#currentDay").text(moment().format("dddd Do MMMM, HH:mm:ss"));
+  };
+  setInterval(update, 1000);
+};
+
 // OnLoad function for main page.
 $(document).ready(function () {
-  function update() {
-    $("#currentDay").text(moment().format("dddd Do MMMM, HH:mm:ss"));
-  }
-  setInterval(update, 1000);
+  renderCurrentTime();
+
   $("#nine").text(nineEvent);
   $("#ten").text(tenEvent);
   $("#eleven").text(elevenEvent);
