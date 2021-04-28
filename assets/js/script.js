@@ -1,4 +1,3 @@
-// Retrieve data from local storage.
 const nineEvent = localStorage.getItem("nine");
 const tenEvent = localStorage.getItem("ten");
 const elevenEvent = localStorage.getItem("eleven");
@@ -34,11 +33,7 @@ const renderTimeBlocks = () => {
   timeBlocks.each(callback);
 };
 
-const onReady = () => {
-  renderCurrentTime();
-
-  renderTimeBlocks();
-
+const renderTimeBlocksText = () => {
   $("#nine").text(nineEvent);
   $("#ten").text(tenEvent);
   $("#eleven").text(elevenEvent);
@@ -50,9 +45,16 @@ const onReady = () => {
   $("#five").text(fiveEvent);
 };
 
+const onReady = () => {
+  renderCurrentTime();
+
+  renderTimeBlocks();
+
+  renderTimeBlocksText();
+};
+
 $(document).ready(onReady);
 
-// Event listeners for each save button. Each button saves respective hour.
 $("#nineBtn").click(function () {
   const nine = $("#nine").val();
   localStorage.setItem("nine", nine);
