@@ -1,4 +1,3 @@
-const currentHour = moment().hour();
 // Retrieve data from local storage.
 const nineEvent = localStorage.getItem("Nine");
 const tenEvent = localStorage.getItem("Ten");
@@ -17,8 +16,7 @@ const renderCurrentTime = () => {
   setInterval(update, 1000);
 };
 
-// OnLoad function for main page.
-$(document).ready(function () {
+const onReady = function () {
   renderCurrentTime();
 
   $("#nine").text(nineEvent);
@@ -30,12 +28,16 @@ $(document).ready(function () {
   $("#three").text(threeEvent);
   $("#four").text(fourEvent);
   $("#five").text(fiveEvent);
-});
+};
+
+$(document).ready(onReady);
 
 // Time blocks to determine if the current time is in the past/present/future.
 const timeBlocks = $(".container .row");
 const callback = function () {
   const timeBlockTime = $(this).data("time");
+  const currentHour = moment().hour();
+
   if (timeBlockTime === currentHour) {
     $(this).find("textarea").removeClass("pass").addClass("present");
   }
