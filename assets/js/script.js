@@ -1,4 +1,3 @@
-const bodyElement = document.body;
 const dateTime = $("#currentDay");
 const currentHour = moment().hour();
 // Retrieve data from local storage.
