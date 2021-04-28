@@ -1,13 +1,13 @@
 // Retrieve data from local storage.
-const nineEvent = localStorage.getItem("Nine");
-const tenEvent = localStorage.getItem("Ten");
-const elevenEvent = localStorage.getItem("Eleven");
-const twelveEvent = localStorage.getItem("Twelve");
-const oneEvent = localStorage.getItem("One");
-const twoEvent = localStorage.getItem("Two");
-const threeEvent = localStorage.getItem("Three");
-const fourEvent = localStorage.getItem("Four");
-const fiveEvent = localStorage.getItem("Five");
+const nineEvent = localStorage.getItem("nine");
+const tenEvent = localStorage.getItem("ten");
+const elevenEvent = localStorage.getItem("eleven");
+const twelveEvent = localStorage.getItem("twelve");
+const oneEvent = localStorage.getItem("one");
+const twoEvent = localStorage.getItem("two");
+const threeEvent = localStorage.getItem("three");
+const fourEvent = localStorage.getItem("four");
+const fiveEvent = localStorage.getItem("five");
 
 const renderCurrentTime = () => {
   const update = () => {
@@ -34,7 +34,7 @@ const renderTimeBlocks = () => {
   timeBlocks.each(callback);
 };
 
-const onReady = function () {
+const onReady = () => {
   renderCurrentTime();
 
   renderTimeBlocks();
@@ -55,45 +55,45 @@ $(document).ready(onReady);
 // Event listeners for each save button. Each button saves respective hour.
 $("#nineBtn").click(function () {
   const nine = $("#nine").val();
-  localStorage.setItem("Nine", nine);
+  localStorage.setItem("nine", nine);
 });
 
 $("#tenBtn").click(function () {
   const ten = $("#ten").val();
-  localStorage.setItem("Ten", ten);
+  localStorage.setItem("ten", ten);
 });
 
 $("#elevenBtn").click(function () {
   const eleven = $("#eleven").val();
-  localStorage.setItem("Eleven", eleven);
+  localStorage.setItem("eleven", eleven);
 });
 
 $("#twelveBtn").click(function () {
   const twelve = $("#twelve").val();
-  localStorage.setItem("Twelve", twelve);
+  localStorage.setItem("twelve", twelve);
 });
 
 $("#oneBtn").click(function () {
   const one = $("#one").val();
-  localStorage.setItem("One", one);
+  localStorage.setItem("one", one);
 });
 
 $("#twoBtn").click(function () {
   const two = $("#two").val();
-  localStorage.setItem("Two", two);
+  localStorage.setItem("two", two);
 });
 
 $("#threeBtn").click(function () {
   const three = $("#three").val();
-  localStorage.setItem("Three", three);
+  localStorage.setItem("three", three);
 });
 
 $("#fourBtn").click(function () {
   const four = $("#four").val();
-  localStorage.setItem("Four", four);
+  localStorage.setItem("four", four);
 });
 
 $("#fiveBtn").click(function () {
   const five = $("#five").val();
-  localStorage.setItem("Five", five);
+  localStorage.setItem("five", five);
 });
