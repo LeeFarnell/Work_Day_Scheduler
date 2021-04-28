@@ -16,8 +16,28 @@ const renderCurrentTime = () => {
   setInterval(update, 1000);
 };
 
+const renderTimeBlocks = () => {
+  const timeBlocks = $(".container .row");
+
+  const callback = function () {
+    const timeBlockTime = $(this).data("time");
+    const currentHour = moment().hour();
+
+    if (timeBlockTime === currentHour) {
+      $(this).find("textarea").removeClass("past").addClass("present");
+    }
+    if (timeBlockTime > currentHour) {
+      $(this).find("textarea").removeClass("past").addClass("future");
+    }
+  };
+
+  timeBlocks.each(callback);
+};
+
 const onReady = function () {
   renderCurrentTime();
+
+  renderTimeBlocks();
 
   $("#nine").text(nineEvent);
   $("#ten").text(tenEvent);
@@ -31,21 +51,6 @@ const onReady = function () {
 };
 
 $(document).ready(onReady);
-
-// Time blocks to determine if the current time is in the past/present/future.
-const timeBlocks = $(".container .row");
-const callback = function () {
-  const timeBlockTime = $(this).data("time");
-  const currentHour = moment().hour();
-
-  if (timeBlockTime === currentHour) {
-    $(this).find("textarea").removeClass("past").addClass("present");
-  }
-  if (timeBlockTime > currentHour) {
-    $(this).find("textarea").removeClass("past").addClass("future");
-  }
-};
-timeBlocks.each(callback);
 
 // Event listeners for each save button. Each button saves respective hour.
 $("#nineBtn").click(function () {
