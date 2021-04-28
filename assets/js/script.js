@@ -1,23 +1,39 @@
-const bodyElement = document.body;
-const dateTime = document.getElementById("currentDay");
-const currentHour = moment().hour();
-// Retrieve data from local storage.
-const nineEvent = localStorage.getItem("Nine");
-const tenEvent = localStorage.getItem("Ten");
-const elevenEvent = localStorage.getItem("Eleven");
-const twelveEvent = localStorage.getItem("Twelve");
-const oneEvent = localStorage.getItem("One");
-const twoEvent = localStorage.getItem("Two");
-const threeEvent = localStorage.getItem("Three");
-const fourEvent = localStorage.getItem("Four");
-const fiveEvent = localStorage.getItem("Five");
-
-// OnLoad function for main page.
-$(document).ready(function () {
-  function update() {
+const renderCurrentTime = () => {
+  const update = () => {
     $("#currentDay").text(moment().format("dddd Do MMMM, HH:mm:ss"));
-  }
+  };
   setInterval(update, 1000);
+};
+
+const renderTimeBlocks = () => {
+  const timeBlocks = $(".container .row");
+
+  const callback = function () {
+    const timeBlockTime = $(this).data("time");
+    const currentHour = moment().hour();
+
+    if (timeBlockTime === currentHour) {
+      $(this).find("textarea").removeClass("past").addClass("present");
+    }
+    if (timeBlockTime > currentHour) {
+      $(this).find("textarea").removeClass("past").addClass("future");
+    }
+  };
+
+  timeBlocks.each(callback);
+};
+
+const renderTimeBlocksText = () => {
+  const nineEvent = localStorage.getItem("nine");
+  const tenEvent = localStorage.getItem("ten");
+  const elevenEvent = localStorage.getItem("eleven");
+  const twelveEvent = localStorage.getItem("twelve");
+  const oneEvent = localStorage.getItem("one");
+  const twoEvent = localStorage.getItem("two");
+  const threeEvent = localStorage.getItem("three");
+  const fourEvent = localStorage.getItem("four");
+  const fiveEvent = localStorage.getItem("five");
+
   $("#nine").text(nineEvent);
   $("#ten").text(tenEvent);
   $("#eleven").text(elevenEvent);
@@ -27,63 +43,59 @@ $(document).ready(function () {
   $("#three").text(threeEvent);
   $("#four").text(fourEvent);
   $("#five").text(fiveEvent);
-});
-
-// Time blocks to determine if the current time is in the past/present/future.
-const timeBlocks = $(".container .row");
-const callback = function () {
-  const timeBlockTime = $(this).data("time");
-  if (timeBlockTime === currentHour) {
-    $(this).find("textarea").removeClass("pass").addClass("present");
-  }
-  if (timeBlockTime > currentHour) {
-    $(this).find("textarea").removeClass("pass").addClass("future");
-  }
 };
-timeBlocks.each(callback);
 
-// Event listeners for each save button. Each button saves respective hour.
+const onReady = () => {
+  renderCurrentTime();
+
+  renderTimeBlocks();
+
+  renderTimeBlocksText();
+};
+
+$(document).ready(onReady);
+
 $("#nineBtn").click(function () {
-  const nine = document.querySelector("#nine").value;
-  localStorage.setItem("Nine", nine);
+  const nine = $("#nine").val();
+  localStorage.setItem("nine", nine);
 });
 
 $("#tenBtn").click(function () {
-  const ten = document.querySelector("#ten").value;
-  localStorage.setItem("Ten", ten);
+  const ten = $("#ten").val();
+  localStorage.setItem("ten", ten);
 });
 
 $("#elevenBtn").click(function () {
-  const eleven = document.querySelector("#eleven").value;
-  localStorage.setItem("Eleven", eleven);
+  const eleven = $("#eleven").val();
+  localStorage.setItem("eleven", eleven);
 });
 
 $("#twelveBtn").click(function () {
-  const twelve = document.querySelector("#twelve").value;
-  localStorage.setItem("Twelve", twelve);
+  const twelve = $("#twelve").val();
+  localStorage.setItem("twelve", twelve);
 });
 
 $("#oneBtn").click(function () {
-  const one = document.querySelector("#one").value;
-  localStorage.setItem("One", one);
+  const one = $("#one").val();
+  localStorage.setItem("one", one);
 });
 
 $("#twoBtn").click(function () {
-  const two = document.querySelector("#two").value;
-  localStorage.setItem("Two", two);
+  const two = $("#two").val();
+  localStorage.setItem("two", two);
 });
 
 $("#threeBtn").click(function () {
-  const three = document.querySelector("#three").value;
-  localStorage.setItem("Three", three);
+  const three = $("#three").val();
+  localStorage.setItem("three", three);
 });
 
 $("#fourBtn").click(function () {
-  const four = document.querySelector("#four").value;
-  localStorage.setItem("Four", four);
+  const four = $("#four").val();
+  localStorage.setItem("four", four);
 });
 
 $("#fiveBtn").click(function () {
-  const five = document.querySelector("#five").value;
-  localStorage.setItem("Five", five);
+  const five = $("#five").val();
+  localStorage.setItem("five", five);
 });
