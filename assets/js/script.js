@@ -36,7 +36,7 @@ $(document).ready(onReady);
 const timeBlocks = $(".container .row");
 const callback = function () {
   const timeBlockTime = $(this).data("time");
-  const currentHour = moment().hour();
+  const currentHour = 13;
 
   if (timeBlockTime === currentHour) {
     $(this).find("textarea").removeClass("pass").addClass("present");
